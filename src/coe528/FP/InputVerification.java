@@ -4,22 +4,31 @@ import java.util.Scanner;
 
 /**
  *
- * @author
+ * @author Hareesh Mathiyalagan, David Nguyen, Laksan Sukumar
  */
 public class InputVerification {
+    /*OVERVIEW: Verifies whether input is of valid form or not and passes 
+                guesses to the ActionMaker if they are valid. This class is 
+                immutable.
+    
+      Abstract Function
+      AF(c) = There are only functions in this class
+          
+      Representation Invariant
+      c.am is an ActionMaker object.
+
+    */
+    
     ActionMaker am;
     
     public InputVerification(ActionMaker am){
+        //EFFECTS: constructor which initializes instance variables.
         this.am = am;
     }
     
-    /**
-     * Determine if the input is a valid char.
-     *
-     * @param input
-     * @return a boolean of whether the input is valid or not.
-     */
     public boolean verifyYN(String input) {
+        //EFFECTS: Determine if the input is a valid char, return a boolean of 
+        //         whether the input is valid or not.
         if (input.length() == 1) {
             if (Character.isLetter(input.charAt(0))) {
                 if(input.equals("y") || input.equals("Y") || input.equals("n") || input.equals("N")){
@@ -38,23 +47,38 @@ public class InputVerification {
         }
     }
     
-    /**
-     * Determine if the input is the correct character.
-     *
-     * @param input
-     * @return a boolean of whether the input character is correct or not.
-     */
+    public static boolean verifyHPE(String input) {
+        //EFFECTS: Determine if the input is a valid char, return a boolean of 
+        //         whether the input is valid or not.
+        if (input.length() == 1) {
+            if (Character.isLetter(input.charAt(0))) {
+                if(input.equals("h") || input.equals("H") || input.equals("p") || input.equals("P") 
+                        || input.equals("e") || input.equals("E")){
+                    return true;
+                } else{
+                    System.out.println("Error: invalid input, enter H, P or E.");   
+                    return false;
+                }
+            } else {
+                System.out.println("Error: invalid input, enter H, P or E.");  
+                return false;
+            }
+        } else {
+            System.out.println("Error: invalid input, enter H, P or E.");  
+            return false;
+        }
+    }
+    
     public boolean verifyChosenCharacter(String input, Person chosenPerson) {
+        //EFFECTS: Determine if the input is the correct character, return a 
+        //         boolean of whether the input character is correct or not.
         return input.equals(chosenPerson.getName());
     }
     
-    /**
-     * Determine if the input is a valid guess.
-     *
-     * @param input
-     * @return a boolean of whether the guess is valid or not.
-     */
     public boolean verifyGuess(String input, Scanner keyboard, Game game) {
+        //EFFECTS: Determine if the input is a valid guess, return a boolean of 
+        //         whether the guess is valid or not. If it is a valid guess then
+        //         pass the input to the ActionMaker am to make an action.
         if(input.equals("gender")){
             am.makeGuessGender();
             return true;
@@ -102,5 +126,18 @@ public class InputVerification {
             System.out.println("Error: invalid input, enter one of the options above.");
             return false;
         }
+    }
+    
+    public boolean repOK()
+    {
+        Object a = this.am;
+       
+        if(!(a instanceof ActionMaker)) return false;
+        else return true;
+    }
+    
+    @Override
+    public String toString(){
+        return am.toString();
     }
 }

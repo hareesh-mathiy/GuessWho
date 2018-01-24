@@ -4,11 +4,20 @@ import java.util.ArrayList;
 
 /**
  *
- * @author
+ * @author Hareesh Mathiyalagan, David Nguyen, Laksan Sukumar
  */
 public class ActionMaker {
-    //OVERVIEW: Holds the methods that make actions based on the guesses the user
-    //          makes, including updating the gameboard and incrementing the turn.
+    /*OVERVIEW: Holds the methods that make actions based on the guesses the user
+                makes, including updating the gameboard and incrementing the turn.
+                This class is immutable.
+
+      Abstract Function
+      AF(c) = {c.game.Game | game != null}
+          
+      Representation Invariant
+      c.game is a Game object.
+    
+    */
     
     Game game;
     
@@ -477,5 +486,19 @@ public class ActionMaker {
             default:
                 break;  
         }
+    }
+    
+    public boolean repOK() {
+        Object a = this.game;
+        
+        if(a != null){
+            if (!(a instanceof Game)) return false;
+            else return true;
+        } else return false;    
+    }
+
+    @Override
+    public String toString() {
+        return game.toString();
     }
 }

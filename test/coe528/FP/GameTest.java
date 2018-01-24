@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coe528.FP;
 
 import java.util.ArrayList;
@@ -10,10 +5,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 /**
  *
- * @author Hareesh
+ * @author Hareesh Mathiyalagan, David Nguyen, Laksan Sukumar
  */
 public class GameTest {
     
@@ -69,7 +65,7 @@ public class GameTest {
         ArrayList<Person> GB = instance.getPeople();
         instance.RandomizeGameBoard();
         ArrayList<Person> randomGB = instance.getGameBoard();
-        assertNotEquals(GB, randomGB);
+        assertThat(GB, not(equalTo(randomGB)));
     }
 
     /**
@@ -82,7 +78,7 @@ public class GameTest {
         Person p = instance.getChosenPerson();
         instance.RandomizePerson();
         Person randomP = instance.getChosenPerson();
-        assertNotEquals(p, randomP);
+        assertThat(p, not(equalTo(randomP)));
     }
 
     /**
