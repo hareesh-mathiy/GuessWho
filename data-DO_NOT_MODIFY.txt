@@ -1,0 +1,15 @@
+Riley|male|black|black|black|adult
+Alexandra|female|white|white|green|senior
+Jordan|male|brown|white|blue|child
+Libby|female|blonde|brown|black|adult
+Niamh|male|black|yellow|blue|senior
+Daisy|female|black|brown|brown|child
+Katherine|female|red|black|brown|adult
+Scarlett|female|brown|white|green|senior
+Sienna|female|white|yellow|black|senior
+Bailey|female|red|yellow|brown|adult
+Mohammed|male|red|brown|green|child
+Erin|male|blonde|yellow|brown|adult
+Imogen|female|black|black|black|senior
+Corey|male|blonde|white|brown|child
+Louie|male|red|brown|blue|child
